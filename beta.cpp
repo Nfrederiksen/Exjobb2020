@@ -669,16 +669,16 @@ void newImageUpdate(float* fp)
 
 
 	
-	// Exjobbsrummet 1 SCREEN
+	// Exjobbsrummet 1 SCREEN # Lite fel mätningar på x-led.
 		cv::Mat _Txs = (cv::Mat_<float>(4, 4) << -1.0729f, 0.0060f, -0.0030f, 0.0858f
 												, 0.0199f, -0.7085f, -0.7729f, 0.8758f
 												, -0.0067f, -0.8293f, 0.7601f, -0.5466f
 												, 0.0f, 0.0f, 0.0f, 1.0f);
-		// Exjobbsrummet 1 SCREEN
-		cv::Mat _Txs2 = (cv::Mat_<float>(4, 4) << -0.9938f, 0.0056f, -0.0028f, 0.0794f
-												, 0.0199f, -0.7085f, -0.7729f, 0.8758f
-												, -0.0063f, -0.7682f, 0.7041f, -0.5463f
-												, 0.0f, 0.0f, 0.0f, 1.0f);
+	// Exjobbsrummet 1 SCREEN
+	cv::Mat _Txs2 = (cv::Mat_<float>(4, 4) << -0.9938f, 0.0056f, -0.0028f, 0.0794f
+											, 0.0199f, -0.7085f, -0.7729f, 0.8758f
+											, -0.0063f, -0.7682f, 0.7041f, -0.5463f
+											, 0.0f, 0.0f, 0.0f, 1.0f);
 										
 	// Exjobbsrummet 2 Absolute
 		cv::Mat _Txa = (cv::Mat_<float>(4, 4) << -1.0142f, 0.4264f, 0.1603f, -0.2185f
