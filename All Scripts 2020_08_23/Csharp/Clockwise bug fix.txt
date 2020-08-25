@@ -1,0 +1,11 @@
+ code rows: 447 -> 454
+
+
+// ===[ CLOCK-WISE OR ANTICLOCK-WISE? ]
+        var newCent_oldCent = P_centroid - LF_StartEnd[0];
+        var Special_3rd_point = fingerBallsInScene[1].transform.position + -newCent_oldCent;
+        Vector3 CF_relativePos = fingerBallsInScene[1].transform.position - P_centroid;
+        Vector3 baseNormal = LF_normal;
+        Vector3 activeNormal = CalcNormalVector(LF_StartEnd[0], LF_StartEnd[1], Special_3rd_point);
+
+        var LeftSide_or_RightSide = Vector3.Dot(activeNormal, baseNormal);//If Ans >= 0 -> Left | Else -> Right
