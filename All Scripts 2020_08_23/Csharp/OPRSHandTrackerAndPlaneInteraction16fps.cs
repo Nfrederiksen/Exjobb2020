@@ -214,11 +214,7 @@ public class OPRSHandTrackerAndPlaneInteraction16fps : MonoBehaviour
 #endif
         // -------------------------------------------------------------------------------------------|
         // Go ahead! Play with your C++ functions.
-
         Debug.Log("init: " + Init());
-
-
-
         // C# CITY
         P_sum = Vector3.zero;
         CF_pos = Vector3.zero;
@@ -271,12 +267,9 @@ public class OPRSHandTrackerAndPlaneInteraction16fps : MonoBehaviour
                     objectsInScene.Add(go);
                     Debug.Log("Interactable gameObject Added to List!: " + go.name);
                 }
-
             }
-
         }
-
-
+        
         fingerBallsInScene.Add(_middle);
         fingerBallsInScene.Add(_index);
         fingerBallsInScene.Add(_thumb);
@@ -322,7 +315,7 @@ public class OPRSHandTrackerAndPlaneInteraction16fps : MonoBehaviour
         dll_xyz_mid.x *= -1;
 
         /*       
-         // [ USED FOR: T matrix calulation process. ]
+         // [ USED FOR: T matrix calibration process. ]
                Vector3 p0, p1, p2;
                p0.x = FINGER_POINTS[6];
                p0.y = FINGER_POINTS[7];
@@ -344,10 +337,8 @@ public class OPRSHandTrackerAndPlaneInteraction16fps : MonoBehaviour
         // ====[ FEEDBACK FOR LOST HAND TRACKING! ]
         if (FINGER_POINTS[15] == 1.0f) // if the tracking is lost 
         {
-
             // release the object
             NoMoreParent();
-
             // Pekfinger
             fingerBallsInScene[1].transform.position = new Vector3(-0.025f, 0.169f, 0.15f);
             // Tumme 1 & 2
@@ -526,13 +517,8 @@ public class OPRSHandTrackerAndPlaneInteraction16fps : MonoBehaviour
 
             YAW = GetYawAngle(CF_normal);
             PITCH = GetPitchAngle(CF_normal);
-
-
             //print("Yaw: " + yaw + " | Pitch: " + pitch);
-
-
         }
-
         // ===[ Update what's OLD ]
         LF_normal = CF_normal;
         LF_relativePos = CF_relativePos;
@@ -551,7 +537,6 @@ public class OPRSHandTrackerAndPlaneInteraction16fps : MonoBehaviour
 
             released = false;
         }
-
     }
 
     //                 _________TT_
