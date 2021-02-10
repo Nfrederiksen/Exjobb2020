@@ -481,16 +481,12 @@ public class OPRSHandTrackerAndPlaneInteraction16fps : MonoBehaviour
         // ===[ Transform the Object of Interest ]
         if (collidedObj)
         {
-
-
-
             //[Translate The Object]-------------
             ///collidedObj.transform.position = CF_pos + (fromFingerToObject);
             if (enableOffset)
             {
-
                 collidedObj.transform.position = P_centroid + myTriangle.normal.normalized * 0.02f + 
-                    (MIDtoPEK.normalized * (Vector3.Distance(fingerBallsInScene[1].transform.position, fingerBallsInScene[0].transform.position) * 1.75f));
+                                                 (MIDtoPEK.normalized * (Vector3.Distance(fingerBallsInScene[1].transform.position, fingerBallsInScene[0].transform.position) * 1.75f));
                 //[Rotate The Object]-------------
                 collidedObj.transform.Rotate(rot1.eulerAngles, Space.World);
                 var orthoOrNot = Vector3.Dot(LF_normal, (fingerBallsInScene[1].transform.position - P_centroid));
