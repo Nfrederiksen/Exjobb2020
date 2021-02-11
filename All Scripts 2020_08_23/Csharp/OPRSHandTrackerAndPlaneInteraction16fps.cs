@@ -140,11 +140,10 @@ public class OPRSHandTrackerAndPlaneInteraction16fps : MonoBehaviour
     const string LIB_PATH = "/Plugins/" + DLL_NAME + ".dll";  // path to the dll in Assets
 #endif
 
-    /// <summary>
-    /// GLOBAL VARIABLES
-    /// </summary>
-    /// 
-
+    ///          .------------------------------.
+    /// #########|       GLOBAL VARIABLES       | ###################################################
+    ///          `-----------------------------'
+    
     //For threading tasks
     Task<float> OPTask;
     Vector3 dll_xyz_copy;
@@ -227,7 +226,7 @@ public class OPRSHandTrackerAndPlaneInteraction16fps : MonoBehaviour
         LF_StartEnd[0] = Vector3.zero;
         LF_StartEnd[1] = Vector3.zero;
 
-
+        // ===[ Find all relavant GameObjects in scene and assign them to variables. ]
         foreach (GameObject go in Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[])
         {
             if (!EditorUtility.IsPersistent(go.transform.root.gameObject) && !(go.hideFlags == HideFlags.NotEditable || go.hideFlags == HideFlags.HideAndDontSave))
@@ -334,7 +333,7 @@ public class OPRSHandTrackerAndPlaneInteraction16fps : MonoBehaviour
                print("P**2-> [ X:" + p2.x + "| Y:" + p2.y + "| Z:" + p2.z + "]");
        */
 
-        // ====[ FEEDBACK FOR LOST HAND TRACKING! ]
+        // ===[ FEEDBACK FOR LOST HAND TRACKING! ]
         if (FINGER_POINTS[15] == 1.0f) // if the tracking is lost 
         {
             // release the object
@@ -376,14 +375,12 @@ public class OPRSHandTrackerAndPlaneInteraction16fps : MonoBehaviour
                 canvasRight.GetComponent<Canvas>().enabled = false;
             }
         }
-
-
+        
         // ======[ Get Mean Position ]
         // The new way to get Mean position.
         Add_Pos_To_List(vector3List_PEK, dll_xyz, listLimit); // medel pekfinger
         Add_Pos_To_List(vector3List_TUM, dll_xyz_tumme, listLimit); // medel tumme
         Add_Pos_To_List(vector3List_MID, dll_xyz_mid, listLimit); // medel tumme 2
-
 
         // if no object don't use mean
         if (collidedObj)
@@ -392,8 +389,7 @@ public class OPRSHandTrackerAndPlaneInteraction16fps : MonoBehaviour
             dll_xyz_tumme = Get_Weighted_Mean(vector3List_TUM);
             dll_xyz_mid = Get_Weighted_Mean(vector3List_MID);
         }
-
-
+        
         if (FINGER_POINTS[15] == 0.0f)
         {
             // ====[ Where should the Finger spheres go according to the DLL? ]
